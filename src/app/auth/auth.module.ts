@@ -1,0 +1,16 @@
+import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';
+import { AuthenticationComponent } from './authentication.component';
+import { SharedModule } from '../shared/shared.module';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
+
+
+
+@NgModule({
+  declarations: [AuthenticationComponent],
+  imports: [
+    SharedModule,FormsModule,RouterModule.forChild([  {path: '' , component: AuthenticationComponent}])
+  ]
+})
+export class AuthModule { }

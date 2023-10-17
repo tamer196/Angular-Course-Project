@@ -1,0 +1,42 @@
+<div class="container mt-5">
+    <div class="card">
+      <div class="card-header" style="margin-bottom: 15px;" >
+        <img src="https://www.freeiconspng.com/uploads/user-interface-login-icon--12.png" width="150" alt="user interface login icon " />
+      </div>
+      <div class="card-body">
+        <!-- <app-alert [message]="error" *ngIf="error" (close)="onHandleError()" ></app-alert> -->
+        <ng-template appPlaceholder ></ng-template>
+        <div *ngIf="isLoading" >
+          <app-spinner-loader></app-spinner-loader>
+        </div>
+        <form #authForm="ngForm" (ngSubmit)="onSubmit(authForm)" *ngIf="!isLoading" >
+          <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input 
+            type="email" 
+            id="email" 
+            class="form-control"
+            name="email"
+            ngModel
+            email
+            >
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              ngModel
+              name="password"
+              required
+              passsword
+              minlength="6"
+            >
+          </div>
+          <button type="submit" class="btn btn-primary"  [disabled]="!authForm.valid" >{{ isLoginMode? 'Login' : 'Sign Up'}}</button> |
+          <button type="button" class="btn btn-primary" (click)="onSwitchMode()" >Switch To {{ !isLoginMode? 'Login' : 'Sign Up'}} </button> 
+        </form>
+      </div>
+    </div>
+  </div>
